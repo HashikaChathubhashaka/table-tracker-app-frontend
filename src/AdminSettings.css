@@ -1,0 +1,26 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.centered-container {
+    display: flex;
+    flex-direction: column;
+ /* vertical centering */
+    align-items: center;      /* horizontal centering */
+    height: 90vh;
+    width: 100vw;             
+    color: #000000;
+    margin: 0;               /* remove default margin if any */
+  }
+
+
+  .menu-title {
+    font-size: 2.8rem; /* Tailwind's text-4xl */
+    font-weight: bold;
+    margin-top: 6.0rem; 
+    margin-bottom: 4.5rem;
+    /* put a good font  */
+    font-family: inherit;
+  }
