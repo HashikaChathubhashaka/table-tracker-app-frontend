@@ -1,6 +1,6 @@
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import { Switch, FormControlLabel } from '@mui/material';
-import { Box, Paper, Backdrop } from "@mui/material";
+import {  Paper, Backdrop } from "@mui/material";
 import Button from '@mui/material/Button';
 
 type PopupModalProps = {

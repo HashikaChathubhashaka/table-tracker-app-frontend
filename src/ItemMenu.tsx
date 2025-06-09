@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useParams,BrowserRouter as Router, Route, Routes, useNavigate } from "react-router";
+import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import { useAuth } from './AuthContext';

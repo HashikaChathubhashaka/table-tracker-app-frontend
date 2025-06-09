@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from './AuthContext';
 import Button from '@mui/material/Button';
-import { TextField, FormControl, InputLabel, Select, MenuItem, Box, CircularProgress,Paper, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'; // <-- Add these imports
+import { TextField, FormControl, InputLabel, MenuItem, Box, CircularProgress,Paper, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'; 
 import './AdminSettings.css'; 
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 interface User {
@@ -64,8 +65,13 @@ const [newUser, setNewUser] = useState({
 });
 const [adding, setAdding] = useState(false);
 
-const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   setNewUser({ ...newUser, [e.target.name]: e.target.value });
+};
+
+const handleSelectChange = (e: SelectChangeEvent<string>) => {
+  const name = e.target.name as string;
+  setNewUser({ ...newUser, [name]: e.target.value });
 };
 
 const handleAddUser = async (e: React.FormEvent) => {
@@ -101,7 +107,7 @@ const handleAddUser = async (e: React.FormEvent) => {
         }
 
         const [items, setItems] = useState<Item[]>([]);
-        const [loadingItems, setLoadingItems] = useState(true);
+        const [_, setLoadingItems] = useState(true);
         const [newItem, setNewItem] = useState<Item>({ name: '', category: '', price: '' });
         const [addingItem, setAddingItem] = useState(false);
 
@@ -311,7 +317,7 @@ const handleAddUser = async (e: React.FormEvent) => {
                   name="role"
                   value={newUser.role}
                   label="Role"
-                  onChange={handleInputChange}
+                  onChange={handleSelectChange}
                 >
                   <MenuItem value="Normal">Normal</MenuItem>
                   {/* <MenuItem value="Admin">Admin</MenuItem> */}

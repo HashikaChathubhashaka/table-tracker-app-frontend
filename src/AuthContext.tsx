@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { decodeToken, TokenPayload } from './utils/jwt';
+import { decodeToken} from './utils/jwt';
 
 interface AuthContextType {
   token: string | null;
